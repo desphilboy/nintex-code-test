@@ -1,0 +1,89 @@
+{
+  "name": "nintex-code-test",
+  "version": "1.0.0",
+  "description": "code test for nintex",
+  "repository": "github.com/Desphilboy/nintex-code-test.git",
+  "main": "index.jsx",
+  "scripts": {
+    "test": "jest --watch",
+    "clean": "npm-run-all clean:server clean:client",
+    "static:server": "mkdir server-dist",
+    "static:client": "mkdir client-dist",
+    "static": "npm-run-all static:server static:client",
+    "run:server": "webpack  --watch --config ./config/webpack.dev.server.config.js & node ./server-dist/server-bundle.js",
+    "run:client": "webpack  --watch --config ./config/webpack.dev.client.config.js & webpack-dev-server --config ./config/webpack.dev.client.config.js",
+    "build:server": "webpack  --config ./config/webpack.dev.server.config.js",
+    "build:client": "webpack  --config ./config/webpack.dev.client.config.js",
+    "start": "npm run run:client",
+    "start:server": "npm run run:server",
+    "cleanbuild": "npm run clean & npm run static",
+    "commit": "git-cz",
+    "release": "standard-version"
+  },
+  "keywords": [
+    "Nintex",
+    "interview",
+    "code test",
+    "coding test challenge",
+    "Nintex code challenge"
+  ],
+  "author": "Desphilboy@yahoo.com",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-es2015": "^7.0.0-beta.53",
+    "@babel/preset-react": "^7.0.0",
+    "@std/esm": "^0.26.0",
+    "babel-loader": "^8.0.6",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "body-parser": "^1.19.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "express": "^4.17.1",
+    "jest": "^24.8.0",
+    "mongoose": "^5.5.14",
+    "nodemon": "^1.18.10",
+    "npm-run-all": "^4.1.5",
+    "path": "^0.12.7",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-form": "^3.5.7",
+    "react-redux": "^7.1.0",
+    "react-router": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "recompose": "^0.30.0",
+    "redux": "^4.0.1",
+    "redux-actions": "^2.6.5",
+    "redux-form": "^8.2.4",
+    "redux-saga": "^1.0.5",
+    "styled-components": "^4.3.2",
+    "webpack": "^4.34.0",
+    "webpack-cli": "^3.3.4"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "commitizen": "^3.1.1",
+    "cz-conventional-changelog": "^2.1.0",
+    "eslint": "^6.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "prop-types": "^15.7.2",
+    "standard-version": "^6.0.1",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./config/testSetup.js"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
